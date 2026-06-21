@@ -1,0 +1,34 @@
+name: IBD Full-Text Bot
+
+on:
+  schedule:
+    # 1日1回。JST 07:00 = UTC 22:00
+    - cron: '0 22 * * *'   # JST 07:00
+  workflow_dispatch:        # 手動実行可能
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PUBMED_EMAIL: ${{ secrets.PUBMED_EMAIL }}
+          PUBMED_API_KEY: ${{ secrets.PUBMED_API_KEY }}
+        run: python src/main.py
