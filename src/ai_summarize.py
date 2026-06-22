@@ -16,7 +16,7 @@ _OUTPUT_SPEC = """# 出力形式(必ずJSONのみ、コードブロックなし)
 {{
   "title_jp": "日本語タイトル(簡潔に、医学用語は適切に)",
   "key_findings": "{key_findings_spec}",
-  "ai_summary": "論文の核心を必ず『1文』で簡潔に(80字以内)。句点は文末の1つだけ。Notionの一覧で一目で内容が掴めるよう「どんな集団に・何をして・何が分かったか」を端的に凝縮する。前置き・複数文・箇条書きは禁止",
+  "ai_summary": "『【日本語タイトル】要約本文』の形式。先頭に【】で囲んだタイトルの日本語訳を置き、続けて100字程度(目安90〜110字)の簡潔な要約を書く。要約は「どんな集団に・何をして・何が分かったか」を端的に凝縮した平易な日本語1文。Notion一覧で一目で内容が掴めるようにする",
   "importance": "★★★" or "★★" or "★",
   "importance_reason": "なぜそのImportanceを付けたか(1文)",
   "relevance_tags": ["ASUC risk stratification" | "single-cell/spatial" | "refractory UC subtyping" | "biologic combo therapy" | "ML/AI in IBD" | "pharmacogenomics" | "その他" のうち該当するもののリスト、無ければ空配列]
@@ -31,7 +31,7 @@ _OUTPUT_SPEC = """# 出力形式(必ずJSONのみ、コードブロックなし)
 - 数値・統計値(HR, OR, p値, CI, n数)は正確に引用すること。Key Findingsの「結果」セクションでは特に丁寧に
 - 不明確な点を捏造しないこと、本文/abstractに無い情報は推測で書かない
 - 日本語の医学用語を使用(例: "ulcerative colitis"→"潰瘍性大腸炎")
-- ai_summary は必ず『1文』・80字以内。文を2つ以上に分けない(句点は文末の1つだけ)。冗長な前置きや「本研究では」等は省き、Notion一覧で一目で読める簡潔な一文にする
+- ai_summary は先頭に【日本語タイトル】、続けて100字程度の簡潔な要約(1文)。冗長な前置きや「本研究では」等は省き、Notion一覧で一目で読める形にする
 - key_findings は厚みを持たせる。特に「臨床的解釈」セクションでは、論文を読んだだけでは見えにくい既存研究との関係や、limitations の意義、IBDの病態理解や鷹将さん的なリサーチクエスチョン(ASUC risk, single-cell/spatial, biologic combo, ML/AI 等)との関連を意識して補足する"""
 
 
