@@ -19,7 +19,7 @@ ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 CLAUDE_MODEL = "claude-sonnet-4-5"
 CLAUDE_MAX_TOKENS = 2000
 # 全文ベースで要約する場合はより長い出力を許可(詳細・長文の解説を出すため大きめに設定)
-CLAUDE_MAX_TOKENS_FULLTEXT = 8000
+CLAUDE_MAX_TOKENS_FULLTEXT = 5000
 
 # ============================================================
 # PubMed設定
@@ -62,7 +62,7 @@ NOT (Editorial[ptyp] OR Letter[ptyp] OR Comment[ptyp] OR News[ptyp] OR Case Repo
 #   全文専用botのため、検索段階から全文参照可能な論文へ絞り込む。
 
 # 1回の実行で処理する最大件数(1日1回・全文精読でコスト重め → 控えめに設定)
-PAPERS_PER_RUN_MAX = 5
+PAPERS_PER_RUN_MAX = 2
 
 # ============================================================
 # ジャーナルホワイトリスト: 信頼度の高いジャーナル
